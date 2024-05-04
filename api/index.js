@@ -1,5 +1,6 @@
 const express = require(`express`);
 const app = express();
+const userRouter = require(`./routes/user`);
 
 const mongoose = require(`mongoose`);
 const dotenv = require(`dotenv`);
@@ -18,8 +19,6 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan(`common`));
 
-app.get(`/`, (req, res) => {
-  res.send(`Welcome to home page`);
-});
+app.use(`/user`, userRouter);
 
 app.listen(8800, () => console.log(`App is running at port 8800`));
