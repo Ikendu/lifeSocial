@@ -1,6 +1,7 @@
 const express = require(`express`);
 const app = express();
 const userRouter = require(`./routes/user`);
+const authRouter = require(`./routes/auth`);
 
 const mongoose = require(`mongoose`);
 const dotenv = require(`dotenv`);
@@ -20,5 +21,6 @@ app.use(helmet());
 app.use(morgan(`common`));
 
 app.use(`/user`, userRouter);
+app.use(`/auth`, authRouter);
 
 app.listen(8800, () => console.log(`App is running at port 8800`));
