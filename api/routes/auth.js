@@ -19,8 +19,19 @@ router.post(`/register`, async (req, res) => {
       email: req.body.email,
       password: hashedPassword,
     });
+
+    //save user and return response
     const user = await newUser.save();
     res.status(200).json(user);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.post(`/login`, async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    !user && res.status(404).json(`user not found `);
   } catch (error) {
     console.log(error);
   }
