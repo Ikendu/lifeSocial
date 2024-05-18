@@ -45,13 +45,16 @@ router.post(`/login`, async (req, res) => {
   }
 });
 
-module.exports = router;
-
 //Not usable in real life, creating from backend
-//   const user = await new User({
-//     username: `lifeness`,
-//     email: `life@gmail.com`,
-//     password: `11111234Aa`,
-//   });
-//   await user.save();
-//   res.send(`User created`);
+router.get(`/reg`, async (req, res) => {
+  J;
+  const user = await new User({
+    username: `lifeness2`,
+    email: `life22@gmail.com`,
+    password: `11111234Aa`,
+  });
+  await user.save();
+  res.send(user);
+});
+
+module.exports = router;
