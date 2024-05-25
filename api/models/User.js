@@ -9,10 +9,12 @@ const UserSchema = new mongoose.Schema(
     isAdmin: { type: Boolean, default: false },
     profilePicture: { type: String, default: `` },
     coverPicture: { type: String, default: `` },
+    description: { type: String, max: 100 },
     city: { type: String, default: `` },
-    state: { type: String, default: `` },
+    from: { type: String, default: `` },
     followers: { type: Array, default: [] },
     followins: { type: Array, default: [] },
+    relationship: { type: Number, enum: [1, 2, 3] },
   },
   { timestamps: true }
 );

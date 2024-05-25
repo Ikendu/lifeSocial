@@ -2,6 +2,7 @@ const router = require(`express`).Router();
 const User = require(`../models/User`);
 const bcrypt = require(`bcrypt`);
 
+//REGISTER NEW USER
 router.post(`/register`, async (req, res) => {
   try {
     //generate salt and create new password
@@ -19,10 +20,11 @@ router.post(`/register`, async (req, res) => {
     const getter = await newUser.save();
     res.status(200).json(getter);
   } catch (error) {
-    console.log(error);
+    res.status(500).json(error);
   }
 });
 
+//LOGIN USER
 router.post(`/login`, async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
@@ -36,9 +38,38 @@ router.post(`/login`, async (req, res) => {
 
     res.status(200).json(user);
   } catch (error) {
-    console.log(error);
+    res.status(500).json(error);
   }
 });
+
+//UPDATE USER
+router.put(`/update/:id`, async (req, res) => {
+  if (req.body.userId === req.body.params) {
+    if (req.body.passord) {
+      try {
+        const salt = await bcrypt.genSalt(10);
+        req.body.passord = await bcrypt.hash(req.body.password, salt);
+      } catch (err) {
+        return res.status(500).json(err);
+      }
+    }
+    const user = await User.findByIdAndUpdate(req.params.id, {
+      $set: req.body,
+    });
+  } else {
+    res.status(403).json(`You can only update you account`);
+  }
+});
+
+//DELETE USER
+router.delete(`/delete`, async (req, res) => {});
+
+//GET A USER
+
+//FOLLOW A USER
+
+//UNFOLLOW A USER
+
 //Register a user
 // router.get(`/register`, async (req, res) => {
 //   const user = new User({
