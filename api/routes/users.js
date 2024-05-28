@@ -8,7 +8,7 @@ router.get(`/`, (req, res) => {
 
 //UPDATE USER
 router.put(`/update/:id`, async (req, res) => {
-  if (req.body.userId === req.params.id || req.user.isAdmin) {
+  if (req.body.userId === req.params.id || req.body.isAdmin) {
     if (req.body.passord) {
       try {
         const salt = await bcrypt.genSalt(10);
@@ -32,7 +32,7 @@ router.put(`/update/:id`, async (req, res) => {
 
 //DELETE USER
 router.delete(`/:id`, async (req, res) => {
-  if (req.body.userId === req.params.id || req.user.isAdmin) {
+  if (req.body.userId === req.params.id || req.body.isAdmin) {
     try {
       const user = await User.findByIdAndDelete(req.params.id);
       res.status(200).json(`User has been deleted`);
