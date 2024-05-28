@@ -30,15 +30,14 @@ router.post(`/login`, async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     !user && res.status(404).json(`Not found`);
 
-    const validPassword = await bcrypt.compare(
-      req.body.password,
-      user.password
-    );
+    const validPassword = bcrypt.compareSync(req.body.password, user.password);
+    // console.log(req.body.password, user.password);
+    // console.log(validPassword);
     !validPassword && res.status(400).json(`Wrong Password`);
 
-    res.status(200).json(user);
+    return res.status(200).json(user);
   } catch (error) {
-    res.status(500).json(error);
+    return res.status(500).json(error);
   }
 });
 
