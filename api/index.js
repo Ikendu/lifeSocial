@@ -5,6 +5,8 @@ const morgan = require(`morgan`);
 const dotenv = require(`dotenv`);
 const userRoutes = require(`./routes/users`);
 const authRoutes = require(`./routes/auth`);
+const postRoutes = require(`./routes/posts`);
+
 dotenv.config();
 const app = express();
 
@@ -19,6 +21,7 @@ app.use(morgan(`common`));
 
 app.use(`/api/users`, userRoutes);
 app.use(`/api/auth`, authRoutes);
+app.use(`/api/posts`, postRoutes);
 
 const port = 5173;
 app.listen(port, () => console.log(`App started at port ${port}`));
