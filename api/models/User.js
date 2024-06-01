@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema(
     city: { type: String, default: `` },
     from: { type: String, default: `` },
     followers: { type: Array, default: [] },
-    followins: { type: Array, default: [] },
+    followings: { type: Array, default: [] },
     relationship: { type: Number, enum: [1, 2, 3] },
   },
   { timestamps: true }
