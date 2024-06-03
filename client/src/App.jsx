@@ -5,8 +5,6 @@ import Home from "./pages/home/Home";
 function App() {
   return (
     <>
-      {/* <PersonPinIcon /> */}
-      HELLO Socail App
       <Home />
     </>
   );
