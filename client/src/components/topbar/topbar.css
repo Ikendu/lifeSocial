@@ -18,17 +18,35 @@
 
 .topbarLeft {
   flex: 3;
-  background-color: red;
 }
 
 .topbarCenter {
   flex: 5;
-  background-color: rgb(114, 75, 206);
+}
+.searchbar {
+  background: white;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+}
+.searchIcon {
+  margin-left: 10px;
+  font-size: 20px !important;
+}
+.searchInput {
+  border: none;
+}
+.searchInput:focus {
+  outline: none;
 }
 
 .topbarRight {
   flex: 4;
-  background-color: rgb(50, 187, 96);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .topbarImg {
