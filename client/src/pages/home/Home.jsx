@@ -1,4 +1,4 @@
-// import PersonPinIcon from "@material-ui/icons/PersonPin";
+import SearchIcon from "@material-ui/icons/Search";
 import Topbar from "../../components/topbar/Topbar";
 import "./home.css";
 
@@ -7,8 +7,6 @@ function Home() {
     <div>
       <div>
         <Topbar />
-        <h1>Home</h1>
-        {/* <PersonPinIcon /> */}
       </div>
     </div>
   );
