@@ -19,39 +19,39 @@ const Leftbar = () => {
       <div className="sidebarWrapper">
         <ul className="sidebarList">
           <li className="sidebarListItem">
-            <RssFeed />
+            <RssFeed className="sidebarIcon" />
             <span className="sidebarListItemText">Feed</span>
           </li>
           <li className="sidebarListItem">
-            <Chat />
+            <Chat className="sidebarIcon" />
             <span className="sidebarListItemText">Chats</span>
           </li>
           <li className="sidebarListItem">
-            <VideoCall />
+            <VideoCall className="sidebarIcon" />
             <span className="sidebarListItemText">Videos</span>
           </li>
           <li className="sidebarListItem">
-            <GroupRounded />
+            <GroupRounded className="sidebarIcon" />
             <span className="sidebarListItemText">Group</span>
           </li>
           <li className="sidebarListItem">
-            <Bookmark />
+            <Bookmark className="sidebarIcon" />
             <span className="sidebarListItemText">Bookmarks</span>
           </li>
           <li className="sidebarListItem">
-            <HelpOutline />
+            <HelpOutline className="sidebarIcon" />
             <span className="sidebarListItemText">Questions</span>
           </li>
           <li className="sidebarListItem">
-            <WorkOutline />
+            <WorkOutline className="sidebarIcon" />
             <span className="sidebarListItemText">Jobs</span>
           </li>
           <li className="sidebarListItem">
-            <Event />
+            <Event className="sidebarIcon" />
             <span className="sidebarListItemText">Events</span>
           </li>
           <li className="sidebarListItem">
-            <School />
+            <School className="sidebarIcon" />
             <span className="sidebarListItemText">Courses</span>
           </li>
         </ul>
