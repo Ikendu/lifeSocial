@@ -21,7 +21,7 @@ function Topbar() {
         </div>
       </div>
       <div className="topbarRight">
-        <div className="topbarLinks">
+        <div className="topbarLink">
           <span className="topbarlinks">Home</span>
           <span className="topbarlinks">Timeline</span>
         </div>

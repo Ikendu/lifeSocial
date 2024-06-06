@@ -47,9 +47,42 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  color: white;
+}
+.topbarLink {
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 14px;
+  display: flex;
+  gap: 10px;
+}
+
+.topbarIcons {
+  display: flex;
+}
+
+.topbarIconItem {
+  margin-right: 15px;
+  cursor: pointer;
+  position: relative;
+}
+.topbarIconBadge {
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  background: red;
+  border-radius: 50%;
+  top: -5px;
+  left: -5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
 }
 
 .topbarImg {
   height: 32px;
   width: 32px;
+  border-radius: 50%;
+  object-fit: cover;
 }
