@@ -1,6 +1,6 @@
-import "./right.css";
+import "./rightbar.css";
 
 function Rightbar() {
-  return <div>Rightbar</div>;
+  return <div className="rightbar">Rightbar</div>;
 }
 export default Rightbar;

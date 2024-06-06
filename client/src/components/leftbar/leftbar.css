@@ -1,0 +1,9 @@
+.leftbar {
+  flex: 2.5;
+  height: calc(100vh - 50px);
+}
+
+.sidebarWrapper {
+  padding: 10px;
+  background-color: yellowgreen;
+}
