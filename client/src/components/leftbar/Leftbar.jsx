@@ -12,6 +12,7 @@ import {
 } from "@material-ui/icons";
 
 import "./leftbar.css";
+import b from "../../assets/persons/d.jpg";
 
 const Leftbar = () => {
   return (
@@ -53,6 +54,34 @@ const Leftbar = () => {
           <li className="sidebarListItem">
             <School className="sidebarIcon" />
             <span className="sidebarListItemText">Courses</span>
+          </li>
+        </ul>
+        <button className="sidebarButton">Show more</button>
+        <hr className="sidebarHr" />
+        <ul className="sidebarFriendlist">
+          <li className="sidebarFriend">
+            <img src={b} alt="" className="sidebarFriendImg" />
+            <span className="sidebarFriendName">Gift Ella</span>
+          </li>
+          <li className="sidebarFriend">
+            <img src={b} alt="" className="sidebarFriendImg" />
+            <span className="sidebarFriendName">Gift Ella</span>
+          </li>
+          <li className="sidebarFriend">
+            <img src={b} alt="" className="sidebarFriendImg" />
+            <span className="sidebarFriendName">Gift Ella</span>
+          </li>
+          <li className="sidebarFriend">
+            <img src={b} alt="" className="sidebarFriendImg" />
+            <span className="sidebarFriendName">Gift Ella</span>
+          </li>
+          <li className="sidebarFriend">
+            <img src={b} alt="" className="sidebarFriendImg" />
+            <span className="sidebarFriendName">Gift Ella</span>
+          </li>
+          <li className="sidebarFriend">
+            <img src={b} alt="" className="sidebarFriendImg" />
+            <span className="sidebarFriendName">Gift Ella</span>
           </li>
         </ul>
       </div>
