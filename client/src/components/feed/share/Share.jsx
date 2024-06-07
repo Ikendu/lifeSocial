@@ -1,3 +1,4 @@
+import { PermMedia } from "@material-ui/icons";
 import e from "../../../assets/persons/e.jpg";
 import "./share.css";
 
@@ -13,7 +14,15 @@ function Share() {
             placeholder="What is on your mind"
           />
         </div>
-        <div className="shareBottom"></div>
+        <hr className="shareHr" />
+        <div className="shareBottom">
+          <div className="shareOptions">
+            <div className="shareOptions">
+              <PermMedia className="shareIcon" />
+              <span className="shareOptionText">Photo or Video</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
