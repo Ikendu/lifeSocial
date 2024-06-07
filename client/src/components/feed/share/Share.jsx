@@ -1,4 +1,4 @@
-import { PermMedia } from "@material-ui/icons";
+import { EmojiEmotions, Label, PermMedia, Room } from "@material-ui/icons";
 import e from "../../../assets/persons/e.jpg";
 import "./share.css";
 
@@ -8,7 +8,7 @@ function Share() {
       <div className="shareWrapper">
         <div className="shareTop">
           <img src={e} alt="" className="shareProfileImg" />
-          <input
+          <textarea
             type="text"
             className="shareInput"
             placeholder="What is on your mind"
@@ -17,9 +17,21 @@ function Share() {
         <hr className="shareHr" />
         <div className="shareBottom">
           <div className="shareOptions">
-            <div className="shareOptions">
+            <div className="shareOption">
               <PermMedia className="shareIcon" />
               <span className="shareOptionText">Photo or Video</span>
+            </div>
+            <div className="shareOption">
+              <Label className="shareIcon" />
+              <span className="shareOptionText">Tag</span>
+            </div>
+            <div className="shareOption">
+              <Room className="shareIcon" />
+              <span className="shareOptionText">Location</span>
+            </div>
+            <div className="shareOption">
+              <EmojiEmotions className="shareIcon" />
+              <span className="shareOptionText">Feeling</span>
             </div>
           </div>
         </div>
