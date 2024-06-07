@@ -8,7 +8,6 @@ function Home() {
   return (
     <div>
       <Topbar />
-
       <div className="homeContainer">
         <Leftbar />
         <Feed />
