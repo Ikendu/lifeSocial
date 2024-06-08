@@ -28,6 +28,39 @@ function Rightbar() {
             </div>
             <span className="rightbarUsername">Akuoma Aniede</span>
           </li>
+          <li className="righbarFriend">
+            <div className="rightbarProfileImgContainer">
+              <img
+                src={h}
+                alt="online friend image"
+                className="rightbarProfileImg"
+              />
+              <span className="rightbarOnline"></span>
+            </div>
+            <span className="rightbarUsername">Akuoma Aniede</span>
+          </li>
+          <li className="righbarFriend">
+            <div className="rightbarProfileImgContainer">
+              <img
+                src={h}
+                alt="online friend image"
+                className="rightbarProfileImg"
+              />
+              <span className="rightbarOnline"></span>
+            </div>
+            <span className="rightbarUsername">Akuoma Aniede</span>
+          </li>
+          <li className="righbarFriend">
+            <div className="rightbarProfileImgContainer">
+              <img
+                src={h}
+                alt="online friend image"
+                className="rightbarProfileImg"
+              />
+              <span className="rightbarOnline"></span>
+            </div>
+            <span className="rightbarUsername">Akuoma Aniede</span>
+          </li>
         </ul>
       </div>
     </div>
