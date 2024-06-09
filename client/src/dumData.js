@@ -3,13 +3,18 @@ import a2 from "./assets/posts/a2.jpg";
 import a3 from "./assets/posts/a3.jpg";
 import a4 from "./assets/posts/a4.jpg";
 import a5 from "./assets/posts/a5.jpg";
-import a6 from "./assets/posts/a6.jpg";
-import a7 from "./assets/posts/a1.jpg";
-import a8 from "./assets/posts/a1.jpg";
-import a9 from "./assets/posts/a1.jpg";
 import b11 from "./assets/posts/b11.jpg";
 import b22 from "./assets/posts/b22.jpg";
 import b33 from "./assets/posts/b33.jpg";
+
+import a from "./assets/persons/e.jpg";
+import e from "./assets/persons/e.jpg";
+import f from "./assets/persons/f.jpg";
+import g from "./assets/persons/g.jpg";
+import h from "./assets/persons/h.jpg";
+import i from "./assets/persons/i.jpeg";
+import j from "./assets/persons/j.jpg";
+import k from "./assets/persons/k.jpg";
 
 export const Posts = [
   {
@@ -86,10 +91,45 @@ export const Posts = [
   },
 ];
 
-const Users = [
+export const Users = [
   {
-    id,
-    profilePicture,
-    name,
+    id: 11,
+    profilePicture: a,
+    username: `Ikendu Xp`,
+  },
+  {
+    id: 12,
+    profilePicture: e,
+    username: `Life Gift`,
+  },
+  {
+    id: 13,
+    profilePicture: f,
+    username: `Melana Max`,
+  },
+  {
+    id: 14,
+    profilePicture: g,
+    username: `Younglife Uba`,
+  },
+  {
+    id: 15,
+    profilePicture: h,
+    username: `Victor Ebus`,
+  },
+  {
+    id: 16,
+    profilePicture: i,
+    username: `Iruoma Cherish`,
+  },
+  {
+    id: 17,
+    profilePicture: j,
+    username: `Akuoma Xel`,
+  },
+  {
+    id: 18,
+    profilePicture: k,
+    username: `Heren`,
   },
 ];
