@@ -6,6 +6,7 @@
   align-items: center;
   position: sticky; /* to stay one place, eg always at the top  */
   top: 0;
+  z-index: 100;
 }
 
 .logo {

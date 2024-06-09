@@ -7,7 +7,7 @@ import b11 from "./assets/posts/b11.jpg";
 import b22 from "./assets/posts/b22.jpg";
 import b33 from "./assets/posts/b33.jpg";
 
-import a from "./assets/persons/e.jpg";
+import a from "./assets/persons/a.jpg";
 import e from "./assets/persons/e.jpg";
 import f from "./assets/persons/f.jpg";
 import g from "./assets/persons/g.jpg";
