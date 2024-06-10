@@ -1,4 +1,5 @@
 import { MoreVert } from "@material-ui/icons";
+import { useState } from "react";
 import "./post.css";
 import f from "../../../assets/persons/f.jpg";
 import g from "../../../assets/persons/g.jpg";
@@ -7,7 +8,13 @@ import like from "../../../assets/like.jpg";
 import { Users } from "../../../dumData";
 
 function Post({ post }) {
-  Users;
+  const [isLiked, setIsliked] = useState(false);
+  const [likes, setLikes] = useState(post.like);
+
+  const handleLikeButton = () => {
+    isLiked ? setLikes(likes - 1) : setLikes(likes + 1);
+    setIsliked(!isLiked);
+  };
 
   return (
     <div className="post">
@@ -37,11 +44,19 @@ function Post({ post }) {
         </div>
         <div className="postBottom">
           <div className="postBottomLetf">
-            <img src={love} alt="love icon" className="likeIcon" />
-            <img src={like} alt="like icon" className="likeIcon" />
-            <span className="postLikeCounter">
-              {post.like} people like this
-            </span>
+            <img
+              src={love}
+              onClick={handleLikeButton}
+              alt="love icon"
+              className="likeIcon"
+            />
+            <img
+              src={like}
+              onClick={handleLikeButton}
+              alt="like icon"
+              className="likeIcon"
+            />
+            <span className="postLikeCounter">{likes} people like this</span>
           </div>
           <div className="postBottomRight">
             <span className="postComentText">{post?.comment} Comments</span>

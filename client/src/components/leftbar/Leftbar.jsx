@@ -13,6 +13,8 @@ import {
 
 import "./leftbar.css";
 import b from "../../assets/persons/d.jpg";
+import { Users } from "../../dumData";
+import CloseFriends from "./CloseFriends";
 
 const Leftbar = () => {
   return (
@@ -59,30 +61,9 @@ const Leftbar = () => {
         <button className="sidebarButton">Show more</button>
         <hr className="sidebarHr" />
         <ul className="sidebarFriendlist">
-          <li className="sidebarFriend">
-            <img src={b} alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">Gift Ella</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src={b} alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">Gift Ella</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src={b} alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">Gift Ella</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src={b} alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">Gift Ella</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src={b} alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">Gift Ella</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src={b} alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">Gift Ella</span>
-          </li>
+          {Users.map((user) => (
+            <CloseFriends key={user.id} user={user} />
+          ))}
         </ul>
       </div>
     </div>
