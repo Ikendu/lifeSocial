@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       {/* <Home /> */}
-      <Profile/>
+      <Profile />
     </>
   );
 }
