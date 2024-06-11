@@ -10,7 +10,14 @@ function LoginPage() {
             Connect with family, friends and the global community
           </span>
         </div>
-        <div className="loginRight">Login Here</div>
+        <div className="loginRight">
+          <div className="loginBox">
+            <input type="text" placeholder="username" className="loginInput" />
+            <input type="text" placeholder="password" className="loginInput" />
+            <button className="loginButton">Login</button>
+            <span className="loginForgot">Forgot password? </span>
+          </div>
+        </div>
       </div>
     </div>
   );
