@@ -42,7 +42,7 @@ function Rightbar({ profile }) {
   };
   const ProfileRightBar = () => {
     return (
-      <div className="">
+      <div className="rightbar">
         <h4 className="rightBarTitle">User Information</h4>
         <div className="rightBarInfo">
           <div className="rightbarInfoItem">
@@ -58,8 +58,20 @@ function Rightbar({ profile }) {
             <span className="rightbarInfoValue">Married</span>
           </div>
         </div>
-        <h4 className="rightBarFTitile">User Friends</h4>
+        <h4 className="rightBarTitle">User Friends</h4>
         <div className="rightBarFollowers">
+          <div className="rightbarFollowing">
+            <img src={h} alt="user follower" className="rightbarFollowerImg" />
+            <span className="rightbarFollowerName">Gife Onyii</span>
+          </div>
+          <div className="rightbarFollowing">
+            <img src={a} alt="user follower" className="rightbarFollowerImg" />
+            <span className="rightbarFollowerName">Ebuka Aba</span>
+          </div>
+          <div className="rightbarFollowing">
+            <img src={e} alt="user follower" className="rightbarFollowerImg" />
+            <span className="rightbarFollowerName">Abba Micha</span>
+          </div>
           <div className="rightbarFollowing">
             <img src={h} alt="user follower" className="rightbarFollowerImg" />
             <span className="rightbarFollowerName">Gife Onyii</span>
