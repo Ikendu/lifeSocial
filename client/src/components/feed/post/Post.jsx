@@ -1,15 +1,27 @@
 import { MoreVert } from "@material-ui/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./post.css";
-import f from "../../../assets/persons/f.jpg";
-import g from "../../../assets/persons/g.jpg";
+import cp from "../../../assets/persons/cp.webp";
+
 import love from "../../../assets/love.jpg";
 import like from "../../../assets/like.jpg";
 import { Users } from "../../../dumData";
+import axios from "axios";
 
 function Post({ post }) {
   const [isLiked, setIsliked] = useState(false);
-  const [likes, setLikes] = useState(post.like);
+  const [likes, setLikes] = useState(post?.likes?.length);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      console.log(`UserId`, post?.userId);
+      const resp = await axios.get(`/users/${post?.userId}`);
+      console.log(resp.data);
+      setUser(resp?.data);
+    };
+    fetchData();
+  }, []);
 
   const handleLikeButton = () => {
     isLiked ? setLikes(likes - 1) : setLikes(likes + 1);
@@ -23,14 +35,16 @@ function Post({ post }) {
           <div className="topLeft">
             <img
               src={
-                Users.filter((user) => user.id === post.userId)?.[0]
-                  ?.profilePicture
+                // Users.filter((user) => user.id === post.userId)?.[0]
+                //   ?.profilePicture
+                user?.profilePicture || cp
               }
               alt=""
               className="postProfileImg"
             />
             <span className="postUserName">
-              {Users.filter((user) => user.id === post.userId)[0]?.username}
+              {/* {Users.filter((user) => user.id === post.userId)[0]?.username} */}
+              {user?.username}
             </span>
             <span className="postDate">{post?.date} mins age</span>
           </div>

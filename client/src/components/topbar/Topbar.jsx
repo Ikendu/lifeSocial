@@ -43,9 +43,9 @@ function Topbar() {
             <span className="topbarIconBadge">1</span>
           </div>
         </div>
-        <div>
+        <Link to={`/profile/change`}>
           <img src={defaultImg} alt="" className="topbarImg" />
-        </div>
+        </Link>
       </div>
     </div>
   );
