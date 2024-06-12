@@ -6,6 +6,7 @@ const dotenv = require(`dotenv`);
 const userRoutes = require(`./routes/users`);
 const authRoutes = require(`./routes/auth`);
 const postRoutes = require(`./routes/posts`);
+const cors = require(`cors`);
 
 dotenv.config();
 const app = express();
@@ -18,10 +19,11 @@ mongoose
 app.use(express.json());
 app.use(helmet());
 app.use(morgan(`common`));
+app.use(cors());
 
 app.use(`/api/users`, userRoutes);
 app.use(`/api/auth`, authRoutes);
 app.use(`/api/posts`, postRoutes);
 
-const port = 5173;
+const port = 5000;
 app.listen(port, () => console.log(`App started at port ${port}`));

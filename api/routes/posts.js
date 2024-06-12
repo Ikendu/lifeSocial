@@ -64,8 +64,8 @@ router.put(`/:id/like`, async (req, res) => {
 });
 
 // GET USER TIMELINE POST
-router.get(`/timeline/all`, async (req, res) => {
-  const currentUser = await User.findById(req.body.userId);
+router.get(`/timeline/:userId`, async (req, res) => {
+  const currentUser = await User.findById(req.params.userId);
 
   const userPosts = await Post.find({ userId: currentUser._id });
   console.log(userPosts);
@@ -75,7 +75,7 @@ router.get(`/timeline/all`, async (req, res) => {
     })
   );
   let postList = userPosts.concat(...friendsPosts);
-  res.json(postList);
+  res.status(200).json(postList);
 });
 
 module.exports = router;
