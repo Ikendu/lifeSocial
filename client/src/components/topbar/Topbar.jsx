@@ -4,12 +4,16 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import ChatIcon from "@material-ui/icons/Chat";
 import "./topbar.css";
 import defaultImg from "../../assets/persons/a.jpg";
+import { Link, useNavigate } from "react-router-dom";
 
 function Topbar() {
+  const navigate = useNavigate();
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-        <div className="logo">Ubanet</div>
+        <Link to={`/`} className="logo">
+          Ubanet
+        </Link>
       </div>
       <div className="topbarCenter">
         <div className="searchbar">
