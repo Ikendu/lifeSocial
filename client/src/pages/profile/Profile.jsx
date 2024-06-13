@@ -56,7 +56,7 @@ function Profile() {
             </div>
           </div>
           <div className="profileRightBottom">
-            <Feed username={user?.username} />
+            <Feed username={username} />
             <Rightbar user={user} />
           </div>
         </div>
