@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import b11 from "../../assets/persons/b11.jpg";
+import cp from "../../assets/persons/cp.webp";
 import cover from "../../assets/posts/cover.jpg";
 import Feed from "../../components/feed/Feed";
 import Leftbar from "../../components/leftbar/Leftbar";
@@ -22,7 +22,6 @@ function Profile() {
       const resp = await axios.get(`/users?username=${username}`);
       console.log(`PROFILE USER`, resp?.data);
       setUser(resp?.data);
-      // window.location.reload();
     };
     fetchData();
   }, []);
@@ -35,12 +34,18 @@ function Profile() {
           <div className="profileRightTop">
             <div className="profileCover">
               <img
-                src={cover}
+                src={
+                  user?.coverPicture ? PF + /posts/ + user?.coverPicture : cover
+                }
                 alt="cover picture"
                 className="profileCoverImg"
               />
               <img
-                src={PF + /persons/ + user?.profilePicture}
+                src={
+                  user?.profilePicture
+                    ? PF + /persons/ + user?.profilePicture
+                    : cp
+                }
                 alt="profile picture"
                 className="profileUserImg"
               />

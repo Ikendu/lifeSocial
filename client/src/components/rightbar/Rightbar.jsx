@@ -50,15 +50,21 @@ function Rightbar({ user }) {
         <div className="rightBarInfo">
           <div className="rightbarInfoItem">
             <span className="rightBarInfoKey">City:</span>
-            <span className="rightbarInfoValue">Enugu</span>
+            <span className="rightbarInfoValue">{user?.city}</span>
           </div>
           <div className="rightbarInfoItem">
             <span className="rightBarInfoKey">From:</span>
-            <span className="rightbarInfoValue">Nigeria</span>
+            <span className="rightbarInfoValue">{user?.from}</span>
           </div>
           <div className="rightbarInfoItem">
             <span className="rightBarInfoKey">Relationship:</span>
-            <span className="rightbarInfoValue">Married</span>
+            <span className="rightbarInfoValue">
+              {user?.relationship == 1
+                ? `Single`
+                : user?.relationship == 2
+                ? `Maried`
+                : `Complicated`}
+            </span>
           </div>
         </div>
         <h4 className="rightBarTitle">User Friends</h4>
