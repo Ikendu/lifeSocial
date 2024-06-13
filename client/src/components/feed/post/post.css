@@ -21,6 +21,7 @@
   height: 38px;
   border-radius: 50%;
   object-fit: cover;
+  cursor: pointer;
 }
 .postUserName {
   font-size: 15px;

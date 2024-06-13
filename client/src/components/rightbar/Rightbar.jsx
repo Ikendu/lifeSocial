@@ -11,7 +11,7 @@ import "./rightbar.css";
 import { Users } from "../../dumData";
 console.log(Users);
 
-function Rightbar({ profile }) {
+function Rightbar({ user }) {
   const HomeRightBar = () => {
     return (
       <div className="rightbar">
@@ -95,6 +95,6 @@ function Rightbar({ profile }) {
       </div>
     );
   };
-  return <>{profile ? <ProfileRightBar /> : <HomeRightBar />}</>;
+  return <>{user ? <ProfileRightBar /> : <HomeRightBar />}</>;
 }
 export default Rightbar;

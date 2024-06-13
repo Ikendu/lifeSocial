@@ -8,21 +8,23 @@ import like from "../../../assets/like.jpg";
 import { Users } from "../../../dumData";
 import axios from "axios";
 import { format } from "timeago.js";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const PF = import.meta.env.VITE_ASSERT_ITEMS;
 // console.log(`pf`, PF);
 
 function Post({ post }) {
   const [isLiked, setIsliked] = useState(false);
   const [likes, setLikes] = useState(post?.likes?.length);
   const [user, setUser] = useState(null);
+  const PF = import.meta.env.VITE_ASSERT_ITEMS;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
-      // console.log(`UserId`, post?.userId);
-      const resp = await axios.get(`/users/${post?.userId}`);
-      // console.log(resp.data);
+      console.log(`UserId`, post?.userId);
+      const resp = await axios.get(`/users?userId=${post?.userId}`);
+      console.log(`USER`, resp.data);
+
       setUser(resp?.data);
     };
     fetchData();
@@ -33,12 +35,17 @@ function Post({ post }) {
     setIsliked(!isLiked);
   };
 
+  const loadProfilePage = () => {
+    navigate(`/profile/${user?.username}`);
+    window.location.reload();
+  };
+
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="topLeft">
-            <Link to={`profile/${user?.username}`}>
+            <div onClick={loadProfilePage}>
               <img
                 src={
                   // Users.filter((user) => user.id === post.userId)?.[0]
@@ -50,7 +57,7 @@ function Post({ post }) {
                 alt=""
                 className="postProfileImg"
               />
-            </Link>
+            </div>
 
             <span className="postUserName">
               {/* {Users.filter((user) => user.id === post.userId)[0]?.username} */}
