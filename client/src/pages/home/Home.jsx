@@ -10,8 +10,8 @@ function Home() {
       <Topbar />
       <div className="homeContainer">
         <Leftbar />
-        <Feed />
-        <Rightbar />
+        <Feed username="gift" />
+        <Rightbar profile />
       </div>
     </>
   );
