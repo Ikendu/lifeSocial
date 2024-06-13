@@ -1,12 +1,17 @@
 import { MoreVert } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import "./post.css";
+// import cp from "../../../assets/persons/cp.webp";
 import cp from "../../../assets/persons/cp.webp";
-
 import love from "../../../assets/love.jpg";
 import like from "../../../assets/like.jpg";
 import { Users } from "../../../dumData";
 import axios from "axios";
+import { format } from "timeago.js";
+import { Link } from "react-router-dom";
+
+const PF = import.meta.env.VITE_ASSERT_ITEMS;
+// console.log(`pf`, PF);
 
 function Post({ post }) {
   const [isLiked, setIsliked] = useState(false);
@@ -15,9 +20,9 @@ function Post({ post }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(`UserId`, post?.userId);
+      // console.log(`UserId`, post?.userId);
       const resp = await axios.get(`/users/${post?.userId}`);
-      console.log(resp.data);
+      // console.log(resp.data);
       setUser(resp?.data);
     };
     fetchData();
@@ -33,20 +38,25 @@ function Post({ post }) {
       <div className="postWrapper">
         <div className="postTop">
           <div className="topLeft">
-            <img
-              src={
-                // Users.filter((user) => user.id === post.userId)?.[0]
-                //   ?.profilePicture
-                user?.profilePicture || cp
-              }
-              alt=""
-              className="postProfileImg"
-            />
+            <Link to={`profile/${user?.username}`}>
+              <img
+                src={
+                  // Users.filter((user) => user.id === post.userId)?.[0]
+                  //   ?.profilePicture
+                  user?.profilePicture
+                    ? PF + `/persons/` + user?.profilePicture
+                    : cp
+                }
+                alt=""
+                className="postProfileImg"
+              />
+            </Link>
+
             <span className="postUserName">
               {/* {Users.filter((user) => user.id === post.userId)[0]?.username} */}
               {user?.username}
             </span>
-            <span className="postDate">{post?.date} mins age</span>
+            <span className="postDate">{format(post?.createdAt)}</span>
           </div>
           <div className="topRight">
             <MoreVert />
@@ -54,7 +64,11 @@ function Post({ post }) {
         </div>
         <div className="postCenter">
           <span className="postCenterText">{post?.desc}</span>
-          <img src={post?.photos} alt="post image" className="postCenterImg" />
+          <img
+            src={PF + post?.img}
+            alt="post image"
+            className="postCenterImg"
+          />
         </div>
         <div className="postBottom">
           <div className="postBottomLetf">
@@ -70,7 +84,9 @@ function Post({ post }) {
               alt="like icon"
               className="likeIcon"
             />
-            <span className="postLikeCounter">{likes} people like this</span>
+            <span className="postLikeCounter">
+              {likes} {likes < 2 ? `person` : `persons`} like this
+            </span>
           </div>
           <div className="postBottomRight">
             <span className="postComentText">{post?.comment} Comments</span>

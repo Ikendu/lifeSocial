@@ -7,6 +7,7 @@ import Topbar from "../../components/topbar/Topbar";
 import "./profile.css";
 
 function Profile() {
+  window.scrollTo(0, 0);
   return (
     <>
       <Topbar />
