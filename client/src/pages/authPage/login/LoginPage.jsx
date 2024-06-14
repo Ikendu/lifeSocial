@@ -1,14 +1,29 @@
 import { Link } from "react-router-dom";
 import "./login.css";
 import { useRef } from "react";
+import axios from "axios";
 
 function LoginPage() {
   const email = useRef();
   const password = useRef();
-  const handleLogin = (e) => {
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log(email.current.value, password.current.value);
+
+    const userData = {
+      email: email.current?.value,
+      password: password.current?.value,
+    };
+    console.log(userData);
+
+    try {
+      const resp = await axios.post(`auth/login`, userData);
+      console.log(resp.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -19,13 +34,14 @@ function LoginPage() {
           </span>
         </div>
         <div className="loginRight">
-          <div className="loginBox">
+          <form className="loginBox">
             <input
               type="email"
               required
               placeholder="username"
               className="loginInput"
               ref={email}
+              autoComplete="true"
             />
             <input
               type="password"
@@ -33,6 +49,7 @@ function LoginPage() {
               placeholder="password"
               className="loginInput"
               ref={password}
+              autoComplete="true"
             />
             <button onClick={handleLogin} className="loginButton">
               Login
@@ -45,7 +62,7 @@ function LoginPage() {
                 Register here
               </Link>
             </p>
-          </div>
+          </form>
         </div>
       </div>
     </div>

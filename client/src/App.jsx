@@ -8,7 +8,7 @@ import RegisterPage from "./pages/authPage/SignupPage.jsx/RegisterPage";
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:5000/api";
-// axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
