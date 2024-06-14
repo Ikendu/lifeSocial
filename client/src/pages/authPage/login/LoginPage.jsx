@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
 import "./login.css";
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
+import { CircularProgress } from "@material-ui/core";
 
 function LoginPage() {
   const email = useRef();
   const password = useRef();
+  const [isLoading, setIsLoading] = useState(false);
   const { user, setUser } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     //prevent default browser behavior
     e.preventDefault();
+    setIsLoading(true);
     //get the users details from ref
     const userData = {
       email: email.current?.value,
@@ -23,11 +26,14 @@ function LoginPage() {
       const resp = await axios.post(`auth/login`, userData);
       // console.log(resp.data);
       //set the users details to context provider for use in all components
+      setIsLoading(false);
       setUser(resp.data);
-      console.log(`USERdATA`, user);
+      console.log(`USERDATA`, user);
+
       //handle occational error
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   };
 
@@ -58,8 +64,16 @@ function LoginPage() {
               ref={password}
               autoComplete="true"
             />
-            <button onClick={handleLogin} className="loginButton">
-              Login
+            <button
+              onClick={handleLogin}
+              className="loginButton"
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <CircularProgress color="inherit" size={20} />
+              ) : (
+                `Login`
+              )}
             </button>
             <span className="loginForgot">Forgot password? </span>
             <hr />
