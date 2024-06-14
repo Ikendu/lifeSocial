@@ -1,24 +1,31 @@
 import { Link } from "react-router-dom";
 import "./login.css";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import axios from "axios";
+import { AuthContext } from "../../../context/AuthContext";
 
 function LoginPage() {
   const email = useRef();
   const password = useRef();
+  const { user, setUser } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
+    //prevent default browser behavior
     e.preventDefault();
-
+    //get the users details from ref
     const userData = {
       email: email.current?.value,
       password: password.current?.value,
     };
     console.log(userData);
-
+    //set the users details to database for login comfirmation
     try {
       const resp = await axios.post(`auth/login`, userData);
-      console.log(resp.data);
+      // console.log(resp.data);
+      //set the users details to context provider for use in all components
+      setUser(resp.data);
+      console.log(`USERdATA`, user);
+      //handle occational error
     } catch (error) {
       console.log(error);
     }
