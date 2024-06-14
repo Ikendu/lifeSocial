@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import { useContext, useRef, useState } from "react";
 import axios from "axios";
@@ -10,6 +10,7 @@ function LoginPage() {
   const password = useRef();
   const [isLoading, setIsLoading] = useState(false);
   const { user, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     //prevent default browser behavior
@@ -29,7 +30,7 @@ function LoginPage() {
       setIsLoading(false);
       setUser(resp.data);
       console.log(`USERDATA`, user);
-
+      navigate(`/`);
       //handle occational error
     } catch (error) {
       console.log(error);

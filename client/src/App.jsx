@@ -6,11 +6,14 @@ import Profile from "./pages/profile/Profile";
 import LoginPage from "./pages/authPage/login/LoginPage";
 import RegisterPage from "./pages/authPage/SignupPage.jsx/RegisterPage";
 import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
 
 axios.defaults.baseURL = "http://localhost:5000/api";
 axios.defaults.withCredentials = true;
 
 function App() {
+  const { user } = useContext(AuthContext);
   return (
     <Routes>
       <Route index element={<Home />} />
