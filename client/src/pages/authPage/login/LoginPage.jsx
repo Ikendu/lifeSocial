@@ -11,9 +11,9 @@ function LoginPage() {
   const { user, isFetching, error, dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
   console.log(`USER`, user);
-  useEffect(() => {
-    if (user) return navigate(`/`);
-  }, []);
+  // useEffect(() => {
+  //   if (user) return navigate(`/`);
+  // }, []);
 
   const handleLogin = async (e) => {
     //prevent default browser behavior
@@ -27,19 +27,17 @@ function LoginPage() {
     //set the users details to database for login comfirmation
     try {
       const resp = await axios.post(`auth/login`, userData);
-      // console.log(resp.data);
       //set the users details to context provider for use in all components
       dispatch({ type: "LOGIN_SUCCESS", payload: resp.data });
-      setIsAuth(true);
-      console.log(`USERDATA`, user);
-      navigate(`/`);
+
+      // navigate(`/`);
       //handle occational error
     } catch (error) {
       console.log(error);
       dispatch({ type: "LOGIN_FAILURE", payload: error });
     }
   };
-
+  console.log(`USERDATA`, user);
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -70,9 +68,9 @@ function LoginPage() {
             <button
               onClick={handleLogin}
               className="loginButton"
-              disabled={isLoading}
+              disabled={isFetching}
             >
-              {isLoading ? (
+              {isFetching ? (
                 <CircularProgress color="inherit" size={20} />
               ) : (
                 `Login`

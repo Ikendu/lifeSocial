@@ -13,18 +13,15 @@ axios.defaults.baseURL = "http://localhost:5000/api";
 axios.defaults.withCredentials = true;
 
 function App() {
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
   return (
     <Routes>
       <Route index element={<Home />} />
       <Route path="/profile/:username" element={<Profile />} />
-      <Route
-        path="/login"
-        element={user ? <Navigate to={`/`} /> : <LoginPage />}
-      />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
     </Routes>
   );
 }
-
+// user ? <Navigate to={`/`} />
 export default App;
