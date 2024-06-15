@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
 import { CircularProgress } from "@material-ui/core";
@@ -9,8 +9,12 @@ function LoginPage() {
   const email = useRef();
   const password = useRef();
   const [isLoading, setIsLoading] = useState(false);
-  const { user, setUser } = useContext(AuthContext);
+  const { user, setUser, isAuth, setIsAuth } = useContext(AuthContext);
   const navigate = useNavigate();
+  console.log(`USER`, user);
+  useEffect(() => {
+    if (user) return navigate(`/`);
+  }, []);
 
   const handleLogin = async (e) => {
     //prevent default browser behavior
@@ -29,7 +33,8 @@ function LoginPage() {
       //set the users details to context provider for use in all components
       setIsLoading(false);
       setUser(resp.data);
-      console.log(`USERDATA`, user);
+      setIsAuth(true);
+      console.log(`USERDATA`, user, isAuth);
       navigate(`/`);
       //handle occational error
     } catch (error) {
