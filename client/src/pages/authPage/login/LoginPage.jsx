@@ -8,8 +8,7 @@ import { CircularProgress } from "@material-ui/core";
 function LoginPage() {
   const email = useRef();
   const password = useRef();
-  const [isLoading, setIsLoading] = useState(false);
-  const { user, setUser, isAuth, setIsAuth } = useContext(AuthContext);
+  const { user, isFetching, error, dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
   console.log(`USER`, user);
   useEffect(() => {
@@ -19,27 +18,25 @@ function LoginPage() {
   const handleLogin = async (e) => {
     //prevent default browser behavior
     e.preventDefault();
-    setIsLoading(true);
+    dispatch({ type: "LOGIN_START" });
     //get the users details from ref
     const userData = {
       email: email.current?.value,
       password: password.current?.value,
     };
-    console.log(userData);
     //set the users details to database for login comfirmation
     try {
       const resp = await axios.post(`auth/login`, userData);
       // console.log(resp.data);
       //set the users details to context provider for use in all components
-      setIsLoading(false);
-      setUser(resp.data);
+      dispatch({ type: "LOGIN_SUCCESS", payload: resp.data });
       setIsAuth(true);
-      console.log(`USERDATA`, user, isAuth);
+      console.log(`USERDATA`, user);
       navigate(`/`);
       //handle occational error
     } catch (error) {
       console.log(error);
-      setIsLoading(false);
+      dispatch({ type: "LOGIN_FAILURE", payload: error });
     }
   };
 
